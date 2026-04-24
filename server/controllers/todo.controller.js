@@ -52,3 +52,13 @@ exports.deleteTask = async (req, res) => {
         res.status(500).json({ message: "unable to delete task" })
     }
 }
+
+exports.getCompletTask = async (req, res) => {
+    try {
+        const result = await Task.find({ complete: true })
+        res.status(200).json({ message: "complete task get success", result })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "unable to get complete task" })
+    }
+}

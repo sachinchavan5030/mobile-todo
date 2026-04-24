@@ -1,4 +1,4 @@
-const { createTask, readTask, updateTask, deleteTask } = require("../controllers/todo.controller")
+const { createTask, readTask, updateTask, deleteTask, getCompletTask } = require("../controllers/todo.controller")
 
 const router = require("express").Router()
 
@@ -7,5 +7,6 @@ router
     .get("/read", readTask)
     .put("/update/:tid", updateTask)
     .delete("/delete/:tid", deleteTask)
+    .get("/getCompleteTask", getCompletTask)
 
 module.exports = router 
