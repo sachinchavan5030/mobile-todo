@@ -33,7 +33,8 @@ exports.updateTask = async (req, res) => {
         if (description) obj.description = description
         if (priority) obj.priority = priority
         if (user_id) obj.user_id = user_id
-        if (complete) obj.complete = complete
+        // if (complete) obj.complete = complete
+        obj.complete = complete
         await Task.findByIdAndUpdate(tid, obj, { runValidators: true })
         res.status(200).json({ message: "task update success" })
     } catch (error) {
